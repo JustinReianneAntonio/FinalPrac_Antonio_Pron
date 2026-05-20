@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App/Models/student;
+
 class studentmngtController extends Controller
 {
 
@@ -29,5 +30,5 @@ class studentmngtController extends Controller
         student::create($request->all());
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
-    
+
 }
