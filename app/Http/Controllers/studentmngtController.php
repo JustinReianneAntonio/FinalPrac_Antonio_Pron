@@ -9,11 +9,10 @@ class studentmngtController extends Controller
 
     public function index () {
         $students = student:: all();
-        return view ('student.index', compact(students));
+        return view ('student.index');
     }
 
     public function create () {
         return view ('student.create');
     }
-
 }
