@@ -59,6 +59,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
                                         </form>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr><td colspan="7">No student found.</td></tr>

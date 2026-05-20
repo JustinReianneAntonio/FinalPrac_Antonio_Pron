@@ -48,13 +48,14 @@ class studentmngtController extends Controller
 
         $student = student::find($id);
         $student->update($request->all());
-        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+        return redirect()->route('student.index')->with('success', 'Student updated successfully.');
     }
 
     public function destroy ($id) {
-        $student = student::find($id);
+        $student = student::findOrFail($id);
         $student->delete();
-        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
+        
+        return redirect()->route('student.index')->with('success', 'Student deleted successfully.');
     }
 
 }
