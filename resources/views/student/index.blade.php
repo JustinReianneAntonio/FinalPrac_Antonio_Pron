@@ -51,10 +51,20 @@
                                     <td>{{ $student->age }}</td>
                                     <td>{{ $student->address }}</td>
                                     <td>{{ $student->zip }}</td>
+
+                                    <td>
+                                        <a href="{{ route('student.edit', $student->id) }}" class="btn btn-primary">Edit</a>
+                                        <form action="{{ route('student.destroy', $student->id) }}" method="POST" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
+                                        </form>
                                 </tr>
                             @empty
                                 <tr><td colspan="7">No student found.</td></tr>
                             @endforelse
+
+
                         </tbody>
 
 
