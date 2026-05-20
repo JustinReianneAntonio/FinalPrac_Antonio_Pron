@@ -15,7 +15,7 @@
 <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-        <a href="{{ route('student.create') }}" class="btn btn-info">Add New Employee</a>
+        <a href="{{ route('student.create') }}" class="btn btn-success">Add New Student</a>
         <div class="row">
 
 
