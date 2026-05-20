@@ -15,34 +15,55 @@
 <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
+        <a href="{{ route('student.create') }}" class="btn btn-info">Add New Employee</a>
+        <div class="row">
 
-                    <div class="alert alert-info">
-                        This is the table for the students
-                    </div>
 
-                    <div class="card">
-                        <div class="card-body p-0">
-
-                            <table class="table">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                 {{-- @foreach($student) --}}
-                                    <tr>
-                                        <td>Matthew Bartolomeo</td>
-                                        <td>matthewbartolomeo@sample.com</td>
-                                    </tr>
-                                {{-- @endforeach --}}
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
+                <div class="card-head">
 
                 </div>
-            </div>
+
+                <div class="card-body">
+
+
+
+                    <table class="table table-bordered table-stiped fs-1 text-black">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Address</th>
+                                <th>Zip</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @forelse ($students as $student)
+                                <tr>
+                                    <td>{{ $student->id }}</td>
+                                    <td>{{ $student->fname }}</td>
+                                    <td>{{ $student->mname }}</td>
+                                    <td>{{ $student->lname }}</td>
+                                    <td>{{ $student->age }}</td>
+                                    <td>{{ $student->address }}</td>
+                                    <td>{{ $student->zip }}</td>
+                                </tr>
+                            @empty
+                                <tr><td colspan="7">No student found.</td></tr>
+                            @endforelse
+                        </tbody>
+
+
+
+                    </table>
+                </div>
+
+                </div>
+
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
