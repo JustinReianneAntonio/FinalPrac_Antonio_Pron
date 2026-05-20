@@ -31,4 +31,30 @@ class studentmngtController extends Controller
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
 
+    public function edit ($id) {
+        $student = student::find($id);
+        return view ('student.edit', compact('student'));
+    }
+    
+    public function update (Request $request, $id) {
+        $request->validate([
+            'fname' => 'required',
+            'mname' => 'required',
+            'lname' => 'required',
+            'age' => 'required|integer',
+            'address' => 'required',
+            'zip' => 'required'
+        ]);
+
+        $student = student::find($id);
+        $student->update($request->all());
+        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+    }   
+
+    public function destroy ($id) {
+        $student = student::find($id);
+        $student->delete();
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
+    }
+
 }
