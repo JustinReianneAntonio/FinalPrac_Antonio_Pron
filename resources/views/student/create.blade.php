@@ -43,7 +43,7 @@
                           <div class="form-group col-12">
                            <label for="exampleInputFile">Middle Name</label>
 
-                          <input type="text" class="form-control" id="midname" name="midname" placeholder="Enter your Middle Name">
+                          <input type="text" class="form-control" id="mname" name="mname" placeholder="Enter your Middle Name">
                         </div>
                           @error('midname') <span class="text-danger">{{$message}}</span> @enderror
 
