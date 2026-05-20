@@ -28,14 +28,14 @@ class studentmngtController extends Controller
         ]);
 
         student::create($request->all());
-        return redirect()->route('students.index')->with('success', 'Student created successfully.');
+        return redirect()->route('student.index')->with('success', 'Student created successfully.');
     }
 
     public function edit ($id) {
         $student = student::find($id);
         return view ('student.edit', compact('student'));
     }
-    
+
     public function update (Request $request, $id) {
         $request->validate([
             'fname' => 'required',
@@ -49,7 +49,7 @@ class studentmngtController extends Controller
         $student = student::find($id);
         $student->update($request->all());
         return redirect()->route('students.index')->with('success', 'Student updated successfully.');
-    }   
+    }
 
     public function destroy ($id) {
         $student = student::find($id);
